@@ -68,7 +68,7 @@ function flipThePage() {
 async function fetchTheMovies(name, page) {
   // First fetch list of movies from search
   const responce = await fetch(
-    `http://www.omdbapi.com/?apikey=16f80093&s=${name}&page=${page}`
+    `https://www.omdbapi.com/?apikey=16f80093&s=${name}&page=${page}`
   )
   const data = await responce.json()
 
@@ -80,7 +80,7 @@ async function fetchTheMovies(name, page) {
     // Use the ids to fetch the movies from imdbID
     const promises = ids.map(async (id) => {
       const responce = await fetch(
-        `http://www.omdbapi.com/?apikey=16f80093&i=${id}`
+        `https://www.omdbapi.com/?apikey=16f80093&i=${id}`
       )
       const data = await responce.json()
       return data
