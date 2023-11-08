@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #1c1c1c;
+  perspective: 3000px;
+  min-height: 100vh;
+}
+
+/* ------------ App ------------ */
+
+.app {
+  width: 400px;
+  color: #fff;
+  background: #121212;
+  min-height: 100vh;
+  position: relative;
+  transition: 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform-style: preserve-3d;
+}
+
+.app.light {
+  background: #fff;
+}
+
+.app.clicked {
+  transform: rotateY(0.5turn);
+}
+
+.app.clicked label {
+  transform: rotateY(0.5turn);
+}
+
+.light-btn {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+label {
+  width: 30px;
+  height: 15px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  cursor: pointer;
+  box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.8),
+    inset 0 -5px 15px rgba(255, 255, 255, 0.8);
+  transition: 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+label::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 1.5px;
+  left: 1.5px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #777, #3a3a3a);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+}
+
+.light-toggle {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.light-toggle:checked + label::after {
+  left: 28.5px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+}
+
+label:active::after {
+  width: 16px;
+}
+
+.empty-search {
+  position: absolute;
+  flex-direction: column;
+  width: 100%;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  color: #2e2e2f;
+  font-weight: 700;
+}
+
+.empty-search img {
+  width: 45px;
+}
+
+.empty-search p {
+  margin-top: 4px;
+}
+
+/* ------------ App Front/Back ------------ */
+
+.app-front,
+.app-back {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  align-items: flex-start;
+}
+
+.app-back {
+  transform: rotateY(0.5turn);
+}
+
+.header,
+.header-back {
+  padding: 6rem 2rem 0;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  height: 200px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: #121212;
+  z-index: -5;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ------------ Container ------------ */
+
+.container {
+  /* background: blue; */
+  height: 100%;
+  width: 100%;
+  transform: translateZ(100px);
+  padding-bottom: 2rem;
+  backface-visibility: hidden;
+}
+
+.title-front,
+.title-back {
+  font-size: 1.8rem;
+}
+
+.subtitle-front,
+.subtitle-back {
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ------------ Search bar ------------ */
+
+.search {
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  height: 34px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.movie-search {
+  width: 75%;
+  position: relative;
+  height: 100%;
+  background: #2b2b2b;
+  border: none;
+  outline: none;
+  padding: 0 10px 0 35px;
+  color: #9ca3af;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.btn {
+  width: 25%;
+  height: 100%;
+  background: #4b4b4b;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.icon {
+  position: absolute;
+  z-index: 5;
+  color: #9ca3af;
+  left: 10px;
+  font-size: 14px;
+}
+
+/* ------------ Main Front/Back ------------ */
+
+.main,
+.main-back {
+  padding: 4rem 2rem 4rem;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  background: #121212;
+  color: #fff;
+  display: block;
+  transition: 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+.error {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+.next-page {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  width: 60px;
+  height: 25px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  border: none;
+  box-shadow: 1px 1px 5px #000;
+  display: none;
+}
+
+.next-page.show-next {
+  display: block;
+}
+
+.desc {
+  color: #a5a5a5;
+  transition: 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.desc.light {
+  color: #3f3f3f;
+}
+
+.main.light,
+.main-back.light {
+  background: #fff;
+  color: #121212;
+}
+
+.main.hide,
+.main-back.hide {
+  display: none;
+}
+
+/* ------------ Search Results ------------ */
+
+.movie {
+  /* border: 2px solid white; */
+  justify-content: space-between;
+  font-size: 10px;
+}
+
+.poster {
+  width: 80px;
+  height: 110px;
+  /* border: 1px solid white; */
+}
+
+.poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details {
+  /* border: 1px solid red; */
+  height: 120px;
+  width: 220px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.movie-name {
+  font-size: 11px;
+  position: relative;
+  bottom: 2px;
+}
+
+.star {
+  font-size: 7px;
+  margin: 0 5px 0 10px;
+  color: gold;
+}
+
+.rating {
+  font-size: 8px;
+}
+
+.more {
+  margin: 8px 0;
+  font-size: 7px;
+  width: 81%;
+  position: relative;
+  justify-content: space-between;
+}
+
+.chategory {
+  font-size: 6px;
+}
+
+.add {
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 1px 1px 4px #000;
+  background: #fff;
+}
+
+.plus {
+  font-size: 9px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+}
+
+.add-to-watchlist {
+  position: absolute;
+  right: -35px;
+  cursor: pointer;
+}
+
+hr {
+  margin: 15px 0;
+}

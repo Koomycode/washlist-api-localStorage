@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/clipart87333.png" type="image/x-icon" />
+    <title>Movies</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="app.js" defer></script>
+  </head>
+
+  <body class="flex">
+    <div class="app" id="app">
+      <div class="light-btn">
+        <input type="checkbox" id="light-toggle" class="light-toggle" />
+        <label for="light-toggle"></label>
+      </div>
+
+      <div class="app-front">
+        <header class="header">
+          <div class="overlay"></div>
+          <img src="img/background.png" class="background-img" />
+
+          <div class="container">
+            <div class="flex-space">
+              <h1 class="title-front">Find your film</h1>
+
+              <p class="subtitle-front">My Watchlist</p>
+            </div>
+
+            <div class="search flex">
+              <input
+                class="movie-search"
+                type="text"
+                name="movie-search"
+                id="movie-search" />
+
+              <i class="fa-solid fa-magnifying-glass icon"></i>
+              <button class="btn" id="btn">Search</button>
+            </div>
+          </div>
+        </header>
+
+        <main class="main">
+          <div class="container">
+            <button class="next-page" id="next">Next</button>
+            <div class="search-results">
+              <!-- -------- Render in JS --------- -->
+            </div>
+          </div>
+        </main>
+      </div>
+
+      <div class="app-back">
+        <header class="header-back">
+          <div class="overlay"></div>
+          <img src="img/background.png" class="background-img" />
+
+          <div class="container">
+            <div class="flex-space">
+              <h1 class="title-back">My Watchlist</h1>
+
+              <p class="subtitle-back">Search for movies</p>
+            </div>
+          </div>
+        </header>
+
+        <main class="main-back">
+          <div class="container">
+            <div class="my-watchlist">
+              <!-- -------- Render in JS --------- -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- 
+        <div class="movie flex">
+            <div class="poster"></div>
+
+            <div class="details flex">
+                
+                <div class="name flex">
+                    <h5 class="movie-name">Blade Runner</h5>
+                    <i class="fa-solid fa-star star"></i>
+                    <p class="rating">8.1</p>
+                </div>
+
+                <div class="more flex">
+                    <p class="run-time">118 min</p>
+                    <p class="chategory">Drama, Mystery, Sci-fi</p>
+                    <button class="add flex">
+                        <i class="fa-solid fa-plus plus"></i>
+                    </button>
+                    <p class="add-to-watchlist">Watchlist</p>
+                </div>
+                <p class="desc">
+                    A blade runner must pursue and terminate four replicants who stole a ship in space, and have returned to Earth to find their creator.
+                </p>
+            </div>
+        </div>
+
+        <hr> 
+    -->
+
+    <script
+      src="https://kit.fontawesome.com/53af5e9bb6.js"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
